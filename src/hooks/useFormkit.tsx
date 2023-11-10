@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import * as yup from "yup";
-import _ from "lodash";
+import isEmpty from "lodash/isEmpty";
 
 export type FormKitSchema<Values> = {
   [K in keyof Values]?: yup.AnySchema;
@@ -47,7 +47,7 @@ export function useFormKit<Values extends FormKitField>({
           if (errors[field]) {
             const _errors = { ...errors };
             delete _errors[field];
-            if (_.isEmpty(_errors)) {
+            if (isEmpty(_errors)) {
               setIsValid(true);
             }
             setErrors(_errors);

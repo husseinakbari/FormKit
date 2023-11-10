@@ -9,7 +9,6 @@ interface Values extends FormKitField {
 }
 
 function App() {
-  console.log("####Refreshing");
   const inputClassName = "border border-gray-400 rounded p-1";
   const renderCount = useRenderCount();
 
@@ -21,6 +20,7 @@ function App() {
     },
     validationSchema: {
       firstName: yup.string().required(),
+      lastName: yup.string().required(),
       status: yup.boolean().isTrue(),
     },
     onSubmit(values) {
